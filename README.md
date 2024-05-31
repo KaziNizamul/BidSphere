@@ -1,17 +1,15 @@
-## Running React on Replit
+A Bidding Website 👨🏻‍⚖️
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+Group Project link with branch: https://git.cs.dal.ca/kumawat/csci-5709-grp-14/-/tree/main?ref_type=heads
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+Deployed link: https://bidsphere.vercel.app
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+Tutorial 2 link : https://git.cs.dal.ca/kumawat/csci-5709-grp-14/-/tree/nizamul_kazi/Tutorials/Tutorial2/BidSphere
 
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
+Installating and running
+use npx create-react-app bidsphere
+The above command creates a new react application  with a default project structure
+We use npm run start to run the development server for react application
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
-
-### Typescript
-
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+Deployment
+To deploy the frontend application I'm using vercel. Vercel offers a comprehensive platform whihc helps in prioritising simplicity, performance, and developer experience for frontend application deployment.
