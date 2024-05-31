@@ -4,7 +4,7 @@ Group Project link with branch: https://git.cs.dal.ca/kumawat/csci-5709-grp-14/-
 
 Deployed link: https://bidsphere.vercel.app
 
-Tutorial 2 link : https://git.cs.dal.ca/kumawat/csci-5709-grp-14/-/tree/nizamul_kazi/Tutorials/Tutorial2/BidSphere
+Tutorial 2 link : https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/tree/main/Tutorials/Tutorial2/BidSphere?ref_type=heads
 
 Installating and running
 use npx create-react-app bidsphere
