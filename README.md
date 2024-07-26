@@ -1,708 +1,445 @@
-# CSCI 5709 Grp-14
+# BidSphere
 
-- _Date Created_: 24 May 2024
-- _Last Modification Date_: 24 June 2024
-- _Deployed Application URL_: <https://bidsphere.netlify.app/>
-- _Repository GitLab URL_: <https://git.cs.dal.ca/kumawat/csci-5709-grp-14/-/tree/main>
+<p align="center">
+    <img src="https://deploy-badge.vercel.app/vercel/bidsphere-frontend" alt="Vercel Deploy"></img>
+</p>
 
-## Authors
+Bidsphere aims to simplify the tender bidding process, offering a comprehensive platform for both issuers and bidders. It provides a transparent, efficient, and user-friendly environment where issuers can create and manage tenders, while bidders can easily place and manage their bids.
 
-- [Ashish Bhasin](ashish.bhasin@dal.ca) - _(Owner)_
-- [Christin Saji](christin.saji@dal.ca) - _(Owner)_
-- [Dheemanth Rajendra Prasad Kumawat](dh243394@dal.ca) - _(Owner)_
-- [Jaydipsinh Ranjitsinh Padhiyar](jy761996@dal.ca) - _(Owner)_
-- [Nizamul Kazi](kazinizamul@dal.ca) - _(Owner)_
-- [Vraj Shah](vr597381@dal.ca) - _(Owner)_
+---
 
-## About
+## Live Deployment
+BidSphere is deployed and accessible at the following URL:
 
-This application is built using React.js as the frontend framework, following the atomic design pattern and Node.js and Springboot as the backend technologies. It aims to simplify the tender bidding process, offering a comprehensive platform for both issuers and bidders. It provides a transparent, efficient, and user-friendly environment where issuers can create and manage tenders, while bidders can easily place and manage their bids. The platform is designed to enhance user experience with secure transactions, smooth communication, and effective contract manage.
+Live Application: https://bidsphere-frontend.vercel.app
+(backend): https://bidsphere-backend.vercel.app
+
+---
+
+**Assignment 3 link :** https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/tree/main/Assignments/Assignment3
+
+---
+
+## Features
+- **Auth**: Secure user login and signup functionality.
+- **Bidder Dashboard**: Displays all tenders with filtering options, including details of individual tenders.
+- **Tender Issuer Dashboard**: Lists all tenders posted by issuers with filtering criteria, tender statistics, and current bidding details.
+- **Tender Creation & Management**: Issuers can create, edit, update, delete tenders, and upload related documents.
+- **Issuer Analysis Dashboard**: Analysis graphs for tender performance such as tenders closed by month/year, average awarded costs, etc.
+- **✅Q&A Page/Help Desk**: Bidders can create questions/tickets, others can comment, and issuer comments are highlighted.
+- **Bidding Management**: Redirects users to a bidding page with pre-filled details, additional details submission, CRUD functionality, and bid status viewing.
+- **Issuer’s Contract Management**: Issuers can view bidder details, award contracts, and send payment requests.
+- **✅Payment Gateway**: Handles payment requests, notifies bidders, and updates bid status.
+- **User Profile**: Modify username, add profile picture, and reset password.
+- **User Verification Module**: Allows user verification by admin, document upload, and approval/rejection functionality.
+- **Document Management**: Upload, store, and manage documents related to tenders, bids, and contracts.
+
+---
+
+## Features developed by me
+### 1. Payment using stripe
+**Backend file Path:** https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/server/node/src/controller/payment.js
+
+**Frontend file Path:** https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/frontend/src/components/molecules/PaymentStatus/index.jsx
+
+**Tasks included**
+- Status Updates: Once payment is completed, dashboards reflect the status.
+
+--- 
+
+### 2. Q&A Page/Help Desk
+**Backend file paths:** 
+- https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/server/node/src/controller/Q&A/Questionaire.controller.js
+
+- https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/server/node/src/controller/Q&A/NestedComment.controller.js
+
+**Frontend file paths:** 
+- https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/frontend/src/components/organisms/Q&A/Questionaire/index.jsx
+
+- https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/frontend/src/components/organisms/Q&A/NestedComment/index.jsx
+
+**Tasks included**
+- Question and Ticket Creation: Bidders can post questions or tickets about tenders.
+- Commenting System: Users can comment on questions.
+
+---
 
 ## Getting Started
 
-See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-To have a local copy of this project up and running on your local machine, you will first need to install the following software / libraries / plug-ins:
+- Node.js (version 12.x or higher)
+- npm (version 6.x or higher) or Yarn (version 1.22.x or higher)
+- MongoDB (version 4.x or higher)
 
-- Node.js
-- npm (Node Package Manager)
-- Java 21
+### Installation
 
-See the following section for detailed step-by-step instructions on how to install this software / libraries / plug-ins.
+### Setup Instructions
 
-### Installing
+1. Navigate to the frontend directory:
 
-A step-by-step series of instructions to get a development environment running:
-
-1. **Install Node.js and npm**
-
-   - Download and install Node.js from [Node.js](https://nodejs.org/).
-   - npm is included with Node.js.
-
-2. **Navigate to the Assignment1 Directory**
-
-   - Open a terminal/command prompt.
-   - Navigate to the `frontend` directory.
-     ```bash
-     cd frontend
-     ```
-
-3. **Install Dependencies**
-
-   - Install the necessary dependencies using npm:
-     ```bash
-     npm install
-     ```
-
-4. **Start the Development Server**
-   - Start the application development server:
-     ```bash
-     npm run dev
-     ```
-   - The app should open in your default web browser at `http://localhost:5173`.
-
-## Deployment
-
-To deploy the React app to Netlify using Github repository, follow these steps:
-
-1. **Link Github with Netlify**
-
-   - Login to your Netlify account
-   - select Deploy from existing project and choose github
-   - Authorize Github and select the repository
-
-2. **Deploy to Netlify**
-
-   - In Build settings specify the base directory where the application is present in the repository which is 'fronend'.
-   - In Build command specify npm run build.
-   - In Publish directory specify 'dist' and click deploy
-   - Netlify will provide a URL for your deployed app.
-
-## Built With
-
-- [React](https://reactjs.org/) - The web framework used
-- [Vite](https://vitejs.dev/guide/) - Build tool
-- [Netlify](https://www.netlify.com/) - For deployment
-- [Node.js](https://nodejs.org/) - JavaScript runtime environment
-- [npm](https://www.npmjs.com/) - Dependency Management
-
-## Sources Used
-
-### frontend/src/components/atoms/accordian/index.jsx
-
-_Line 20_
-
-```
-The arrow svg is used from (https://www.svgrepo.com/svg/80156/down-arrow) which is opened licensed svg vector and icons site.
+```bash
+cd frontend
 ```
 
-### frontend/src/components/molecules/ContactForm/index.jsx
+2. Install dependencies:
 
-_Lines 30 - 32_
-
-```
-if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      errors.email = "Invalid email format";
-    }
-
+```bash
+npm install
 ```
 
-The code above was created by adapting the code in [JavaScript Email Validation: Tutorial with Code Snippets](https://mailtrap.io/blog/javascript-email-validation/) as shown below:
+3. Start the development server:
+
+```bash
+npm start
+```
+
+4. Navigate to the server directory:
+
+```bash
+cd server/node
+```
+
+5. Install dependencies:
+
+```bash
+npm install
+```
+
+6. Start the server:
+
+```bash
+npm start
+```
+
+The application should now be running on `http://localhost:5173`.
+
+--- 
+
+## Usage
+
+After installation, you can use BidSphere to:
+
+- **For Bidders**: To Bid and get the contract.
+- **For Issuers**: To create the contract and let bidders bid for it.
+
+---
+## Folder Structure
 
 ```
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+├── Readme.md
+├── frontend
+│   ├── dist
+│   ├── index.html
+│   ├── jsconfig.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public
+│   ├── src
+│   │   ├── components
+│   │   │   ├── atoms
+│   │   │   │   ├── accordian
+│   │   │   │   ├── button
+│   │   │   │   ├── input
+│   │   │   │   └── textarea
+│   │   │   ├── molecules
+│   │   │   │   ├── BreadCrumb
+│   │   │   │   ├── ContactForm
+│   │   │   │   ├── Drawer
+│   │   │   │   ├── LandingPage
+│   │   │   │   ├── Modal
+│   │   │   │   ├── PaymentStatus
+│   │   │   │   │   ├── PaymentStatus.module.scss
+│   │   │   │   │   └── index.jsx
+│   │   │   │   ├── RedirectToQnA
+│   │   │   │   │   ├── RedirectToQnA.module.scss
+│   │   │   │   │   └── index.jsx
+│   │   │   │   ├── Table
+│   │   │   │   └── TenderForm
+│   │   │   ├── organisms
+│   │   │   │   ├── ContactFormContainer
+│   │   │   │   ├── FaqGroup
+│   │   │   │   ├── LandingPage
+│   │   │   │   └── Q&A
+│   │   │   │       ├── NestedComment
+│   │   │   │       │   ├── NestedComment.module.scss
+│   │   │   │       │   ├── data
+│   │   │   │       │   │   └── NestedComment.reducer.js
+│   │   │   │       │   ├── index.jsx
+│   │   │   │       │   ├── sections
+│   │   │   │       │   │   ├── comment
+│   │   │   │       │   │   │   ├── comment.service.js
+│   │   │   │       │   │   │   ├── index.jsx
+│   │   │   │       │   │   │   ├── replies
+│   │   │   │       │   │   │   │   └── index.jsx
+│   │   │   │       │   │   │   └── slice
+│   │   │   │       │   │   │       └── commentsSlice.js
+│   │   │   │       │   │   └── question
+│   │   │   │       │   │       ├── index.jsx
+│   │   │   │       │   │       ├── question.module.scss
+│   │   │   │       │   │       └── slice
+│   │   │   │       │   │           └── questionsSlice.js
+│   │   │   │       │   ├── service
+│   │   │   │       │   │   └── NestedComment.service.js
+│   │   │   │       │   └── utils
+│   │   │   │       │       └── index.js
+│   │   │   │       ├── Questionaire
+│   │   │   │       │   ├── Questionaire.module.scss
+│   │   │   │       │   ├── data
+│   │   │   │       │   │   ├── Questionaire.reducer.js
+│   │   │   │       │   │   └── questionaire.slice.js
+│   │   │   │       │   ├── index.jsx
+│   │   │   │       │   ├── sections
+│   │   │   │       │   │   └── ModalWrapper
+│   │   │   │       │   │       ├── index.jsx
+│   │   │   │       │   │       ├── index.module.scss
+│   │   │   │       │   │       └── slice
+│   │   │   │       │   │           └── modalSlice.js
+│   │   │   │       │   └── service
+│   │   │   │       │       └── Questionaire.service.js
+│   │   │   │       └── reducer
+│   │   │   │           └── Q&A.reducer.js
+│   │   │   ├── pages
+│   │   │   │   ├── Contact
+│   │   │   │   ├── Faq
+│   │   │   │   ├── HomePage
+│   │   │   │   ├── Pricing
+│   │   │   │   │   └── index.jsx
+│   │   │   │   └── TenderIssuer
+│   │   │   ├── templates
+│   │   │   │   ├── Contact
+│   │   │   │   └── Faq
+│   │   │   └── utils
+│   │   ├── core
+│   │   │   ├── App.jsx
+│   │   │   ├── configs
+│   │   │   │   └── ErrorBoundary.jsx
+│   │   │   ├── index.css
+│   │   │   ├── index.jsx
+│   │   │   └── routes
+│   │   │       └── route.jsx
+│   │   ├── data
+│   │   │   └── store.js
+│   │   ├── services
+│   │   │   ├── http.js
+│   │   │   └── urls.js
+│   │   └── shared
+│   │       ├── assets
+│   │       ├── components
+│   │       ├── constants
+│   │       ├── hoc
+│   │       └── hooks
+│   ├── tailwind.config.js
+│   └── vite.config.js
+└── server
+    ├── node
+    │   ├── dist
+    │   ├── index.js
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── src
+    │   │   ├── controller
+    │   │   │   ├── Q&A
+    │   │   │   │   ├── NestedComment.controller.js
+    │   │   │   │   └── Questionaire.controller.js
+    │   │   │   └── payment.js
+    │   │   ├── middleware
+    │   │   │   └── corsMiddleware.js
+    │   │   ├── model
+    │   │   │   └── Q&A
+    │   │   │       ├── NestedComment.model.js
+    │   │   │       └── Questionaire.model.js
+    │   │   └── routes
+    │   │       ├── Q&A
+    │   │       │   ├── NestedComment.route.js
+    │   │       │   ├── Questionaire.route.js
+    │   │       │   └── index.js
+    │   │       └── payment.js
+    │   └── vercel.json
+    └── springboot
+
+```
+
+---
+## Sources used:
+
+**1. file path** : https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/server/node/src/controller/payment.js
+
+```JS
+require('dotenv').config();
+const stripe = require('stripe')(process.env.SECRET_KEY)
+
+exports.initPayment = async(req, res) => {
+  const { product } = req.body;
+
+  const lineItems = product.map((products) => {
+    return {
+      price_data: {
+        currency: "cad",
+        product_data: {
+          name: products.title
+        },
+        unit_amount: products.amount * 100,
+      },
+      quantity: 1
+    };
+  });
+
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: lineItems,
+    mode: "payment",
+    success_url: `${process.env.FRONTEND_URL}/payment-success`,
+    cancel_url: `${process.env.FRONTEND_URL}/payment-failure`,
+  }) 
+
+  res.json({ session })
 }
-
 ```
 
-<!---How---> 
-- The code in [JavaScript Email Validation: Tutorial with Code Snippets](https://mailtrap.io/blog/javascript-email-validation/) was implemented by using the regular expression for email validation.
-<!---Why---> 
-- [JavaScript Email Validation: Tutorial with Code Snippets](https://mailtrap.io/blog/javascript-email-validation/)'s Code was used because it provides a simple and effective way to validate email addresses.
-<!---How---> 
-- [JavaScript Email Validation: Tutorial with Code Snippets](https://mailtrap.io/blog/javascript-email-validation/)'s Code was modified by integrating it into the form validation logic.
+The above code was modified by using the code from below link
+https://docs.stripe.com/payments
 
-### frontend/src/components/molecules/LandingPage/Modal.jsx
-_Lines 33 - 49_
+**2. file path:**
+https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/blob/main/Assignments/Assignment3/frontend/src/components/organisms/Q&A/Questionaire/index.jsx
 
-Adapted Code:
-```
-<button className="footer-link" onClick={handleOpen}>{title}</button>
-<Dialog open={open} handler={handleOpen} className=" overflow-none">
-<DialogHeader>{title}
-<DialogFooter className="space-x-1">
+```JSX
+/* external imports */
+import React, { useEffect } from 'react';
+import { message } from 'antd';
+import cx from 'classnames';
+import moment from 'moment';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+/* internal components */
+import Button from '@atoms/button';
+import withNavbar from '@shared/hoc/withNavBar';
+import ModalWrapper from './sections/ModalWrapper';
+import { setquestionData } from './data/questionaire.slice';
+import { setModalVisible } from './sections/ModalWrapper/slice/modalSlice';
+/* styles */
+import styles from './Questionaire.module.scss';
+/* services */
+import { getAllQuestions } from './service/Questionaire.service';
 
-<Button variant="text" color="blue-gray" onClick={handleOpen}>
-close
-</Button>
-</DialogFooter>
-</DialogHeader>
-<DialogBody className="h-[40rem] p-10 overflow-scroll mb-10">
-<Typography className="font-normal">
-     {formatContentToJSX()}
-</Typography>
-</DialogBody>
-</Dialog>
-```
+const Questions = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-The code above was created by adapting the code in [Tailwind CSS Dialog - React](https://www.material-tailwind.com/docs/react/dialog) as shown below:
+  const questionData = useSelector(
+    state => state.QuesnAndAnswerReducer.QuestionaireReducer.QuestionaireReducer.questionData,
+  );
+  const isModalVisible = useSelector(
+    state => state.QuesnAndAnswerReducer.QuestionaireReducer.ModelWrappereReducer.isModalVisible,
+  );
 
-Reference Code:
-```
-import React from "react";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-  Typography,
-} from "@material-tailwind/react";
- 
-export function LongDialog() {
-  const [open, setOpen] = React.useState(false);
- 
-  const handleOpen = () => setOpen(!open);
- 
+  useEffect(() => {
+    fetchQuestionData();
+  }, []);
+
+  const fetchQuestionData = () => {
+    getAllQuestions()
+      .then(({ data }) => {
+        dispatch(setquestionData(data));
+      })
+      .catch((err) => {
+        message.error(err);
+      });
+  };
+
+  const handleButtonClick = () => {
+    dispatch(setModalVisible(true));
+  };
+
+  const handleQuestionClick = (questionId) => {
+    navigate(`${location.pathname}/${questionId}`);
+  };
+
   return (
     <>
-      <Button onClick={handleOpen}>Long Dialog</Button>
-      <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>Long Dialog</DialogHeader>
-        <DialogBody className="h-[42rem] overflow-scroll">
-          <Typography className="font-normal">
-           Content
-          </Typography>
-        </DialogBody>
-        <DialogFooter className="space-x-2">
-          <Button variant="text" color="blue-gray" onClick={handleOpen}>
-            cancel
+      <div className={styles.questions}>
+        <div className={styles.topQuestions}>
+          <div>Q <sub style={{ bottom: 'unset' }}>&</sub> A</div>
+          <Button
+            title="Ask a Question"
+            className={styles.askButton}
+            onClick={handleButtonClick}
+          >Ask a Question
           </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
-            confirm
-          </Button>
-        </DialogFooter>
-      </Dialog>
+        </div>
+        <div className={styles.questionList}>
+          {(questionData || []).map((question) => {
+            const {
+              _id: qId = '',
+              qTitle = '',
+              qDesc = '',
+              timeStamp = 0,
+              askedByUsername = '',
+              totalAnswers = 0,
+            } = question || {};
+
+            return (
+              <div
+                key={qId}
+                role="button"
+                tabIndex={0}
+                className={styles.questionContainer}
+                onClick={() => handleQuestionClick(qId)}
+              >
+                <div className={styles.authorSection}>
+                  <FaUser className={styles.icon} />
+                  <span className={styles.authorName}>{askedByUsername}</span>
+                  <span className={styles.created}>asked {moment(timeStamp).fromNow()}</span>
+                  <span
+                    className={cx(styles.totalAnswers, {
+                      [styles.noAnswers]: totalAnswers === 0,
+                      [styles.hasAnswers]: totalAnswers > 0,
+                    })}
+                  >
+                    {totalAnswers} Answers
+                  </span>
+                </div>
+                <div className={styles.questionContent}>
+                  <div className={styles.questionTitle}>{qTitle}</div>
+                  <div className={styles.questionDescription}>{qDesc}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      {isModalVisible && (
+        <ModalWrapper title="Ask a Question" onSubmit={fetchQuestionData} />
+      )}
     </>
   );
-}
-```
-
-<!---How---> 
-- The code in   was implemented [Tailwind CSS Dialog - React](https://www.material-tailwind.com/docs/react/dialog) to show terms and contidition and privacy policy modal.
-<!---Why--->  
-- [Tailwind CSS Dialog - React](https://www.material-tailwind.com/docs/react/dialog)'s Code was used because it provides a simple and effective React components which utilises Tailwind Css which we are implementing.
-<!---How--->  
-- [Tailwind CSS Dialog - React](https://www.material-tailwind.com/docs/react/dialog)'s Code was modified by integrating it with our dummy data.
-
-### frontend/src/core/index.css
-
-Adapted Code:
-```
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Regular.ttf"), format("truetype");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Medium.ttf"), format("truetype");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Semibold.ttf"), format("truetype");
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Bold.ttf"), format("truetype");
-    font-weight: 700;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-    * {
-        @apply p-0 m-0 box-border scroll-smooth;
-    }
-    section {
-        @apply relative min-h-screen py-[70px] overflow-hidden;
-    }
-
-    body {
-        background-color: #f1faee;
-      }
-}
-
-@layer components {
-    .link {
-        @apply outline-none font-medium text-sm text-gray-10 cursor-pointer transition-colors hover:text-primary-40;
-    }
-
-    .btn {
-        @apply px-6 rounded-full w-fit h-14 font-medium text-lg transition-colors duration-300;
-    }
-
-    .btn-primary {
-        @apply rounded-full bg-primary-50 text-gray-10 hover:bg-primary-60 active:bg-primary-70;
-    }
-
-    .btn-outline {
-        @apply bg-transparent border border-solid border-gray-10 text-gray-10 hover:bg-gray-10 hover:text-white;
-    }
-
-    .section-title-before {
-        @apply before:content-[url("../shared/assets/heading-left.svg")] before:absolute before:-translate-x-full before:-translate-y-2/4;
-    }
-
-    .section-title-after {
-        @apply after:content-[url("../shared/assets/heading-right.svg")] after:absolute after:-translate-y-1/4;
-    }
-
-    .footer-col {
-        @apply flex flex-col gap-y-4 basis-[250px];
-    }
-
-    .social-icon {
-        @apply p-1.5 bg-gray-30 rounded-full text-white;
-    }
-
-    .footer-heading {
-        @apply text-xl font-semibold text-white;
-    }
-
-    .footer-link {
-        @apply w-fit text-lg !leading-[normal] text-gray-80 hover:text-primary-50;
-    }
-}
-
-.header__menu-icon span {
-    display: block;
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background-color: #292c32;
-    transition: all 200ms ease;
-}
-
-.header__menu-icon span:nth-child(1) {
-    top: 0;
-    left: 0;
-    transform: translate(0);
-}
-
-.header__menu-icon span:nth-child(2) {
-    top: 7px;
-    left: 0;
-    transform: translate(8px);
-}
-
-.header__menu-icon span:nth-child(3) {
-    top: 14px;
-    left: 0;
-    transform: translate(4px);
-}
-
-.header__menu-icon:hover:not(.active) span:nth-child(1) {
-    transform: translate(4px);
-}
-
-.header__menu-icon:hover:not(.active) span:nth-child(2) {
-    transform: translate(0);
-}
-
-.header__menu-icon:hover:not(.active) span:nth-child(3) {
-    transform: translate(8px);
-}
-
-.header__menu-icon.active span:nth-child(1) {
-    top: 7px;
-    transform: translate(0) rotate(225deg);
-}
-
-.header__menu-icon.active span:nth-child(2) {
-    top: 7px;
-    transform: translate(20px);
-}
-
-.header__menu-icon.active span:nth-child(3) {
-    top: 7px;
-    transform: translate(0) rotate(135deg);
-}
-
-[data-difficulty="short"] {
-    --bg: #049905;
-    --bg-alpha-35: rgba(4, 154, 4, 0.35);
-}
-
-
-```
-
-The code above was created by adapting the code in [Responsive Landing Page](https://github.com/xdcode2/course-website) as shown below:
-
-Reference Code:
-```
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Regular.ttf"), format("truetype");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Medium.ttf"), format("truetype");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Semibold.ttf"), format("truetype");
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("../font/Lato-Bold.ttf"), format("truetype");
-    font-weight: 700;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-    * {
-        @apply p-0 m-0 box-border scroll-smooth;
-    }
-    section {
-        @apply relative min-h-screen py-[70px] overflow-hidden;
-    }
-
-    img {
-        @apply w-full h-full object-cover select-none;
-    }
-}
-
-@layer components {
-    .link {
-        @apply outline-none font-medium text-lg text-gray-10 cursor-pointer transition-colors hover:text-primary-40;
-    }
-
-    .btn {
-        @apply px-6 rounded-full w-fit h-14 font-medium text-lg transition-colors duration-300;
-    }
-
-    .btn-primary {
-        @apply rounded-full bg-primary-50 text-gray-10 hover:bg-primary-60 active:bg-primary-70;
-    }
-
-    .btn-outline {
-        @apply bg-transparent border border-solid border-gray-10 text-gray-10 hover:bg-gray-10 hover:text-white;
-    }
-
-    .section-title-before {
-        @apply before:content-[url("./assets/heading-left.svg")] before:absolute before:-translate-x-full before:-translate-y-2/4;
-    }
-
-    .section-title-after {
-        @apply after:content-[url("./assets/heading-right.svg")] after:absolute after:-translate-y-1/4;
-    }
-
-    .footer-col {
-        @apply flex flex-col gap-y-4 basis-[250px];
-    }
-
-    .social-icon {
-        @apply p-1.5 bg-gray-30 rounded-full text-white;
-    }
-
-    .footer-heading {
-        @apply text-xl font-semibold text-white;
-    }
-
-    .footer-link {
-        @apply w-fit text-lg !leading-[normal] text-gray-80 hover:text-primary-50;
-    }
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: theme(colors.gray.40);
-    border-radius: 100vmax;
-    border: 2px solid transparent;
-    background-clip: content-box;
-}
-
-.header__menu-icon span {
-    display: block;
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background-color: #292c32;
-    transition: all 200ms ease;
-}
-
-.header__menu-icon span:nth-child(1) {
-    top: 0;
-    left: 0;
-    transform: translate(0);
-}
-
-.header__menu-icon span:nth-child(2) {
-    top: 7px;
-    left: 0;
-    transform: translate(8px);
-}
-
-.header__menu-icon span:nth-child(3) {
-    top: 14px;
-    left: 0;
-    transform: translate(4px);
-}
-
-.header__menu-icon:hover:not(.active) span:nth-child(1) {
-    transform: translate(4px);
-}
-
-.header__menu-icon:hover:not(.active) span:nth-child(2) {
-    transform: translate(0);
-}
-
-.header__menu-icon:hover:not(.active) span:nth-child(3) {
-    transform: translate(8px);
-}
-
-.header__menu-icon.active span:nth-child(1) {
-    top: 7px;
-    transform: translate(0) rotate(225deg);
-}
-
-.header__menu-icon.active span:nth-child(2) {
-    top: 7px;
-    transform: translate(20px);
-}
-
-.header__menu-icon.active span:nth-child(3) {
-    top: 7px;
-    transform: translate(0) rotate(135deg);
-}
-
-[data-difficulty="beginner"] {
-    --bg: #049905;
-    --bg-alpha-35: rgba(4, 154, 4, 0.35);
-}
-
-[data-difficulty="intermediate"] {
-    --bg: #f89e00;
-    --bg-alpha-35: rgba(250, 158, 0, 0.35);
-}
-
-[data-difficulty="advanced"] {
-    --bg: #f3381d;
-    --bg-alpha-35: rgba(242, 57, 28, 0.35);
-}
-```
-
-<!---How---> 
-- The code  in [Responsive Landing Page](https://github.com/xdcode2/course-website)  was implemented for index.css styles.
-<!---Why--->  
-- [Responsive Landing Page](https://github.com/xdcode2/course-website)'s Code was used because it is open source and its styles are good reference point for our website style.
-<!---How--->  
-- [Responsive Landing Page](https://github.com/xdcode2/course-website)'s Code was modified by integrating it with our other color schemes and requirements.
-
-### frontend/src/tailwind.config.js
-
-Adapted Code:
-```
-theme: {
-    container: {
-      center: true,
-      padding: "1rem",
-    },
-    fontFamily: {
-      lato: ["Lato", "sans-serif"],
-    },
-    extend: {
-      fontSize: {
-        h1: [
-          "clamp(2.25rem, 4vw, 3.375rem)",
-          {
-            lineHeight: "normal",
-            fontWeight: "700",
-          },
-        ],
-        h2: [
-          "clamp(2rem, 4vw, 2.75rem)",
-          {
-            lineHeight: "normal",
-            fontWeight: "700",
-          },
-        ],
-        h3: [
-          "clamp(1.75rem, 4vw, 2.25rem)",
-          {
-            lineHeight: "normal",
-            fontWeight: "700",
-          },
-        ],
-      },
-      colors: {
-        primary: {
-          10: "#535c11",
-          20: "#75811f",
-          30: "#98a72c",
-          40: "#bacc3a",
-          50: "#ddf247",
-          60: "#e4f56c",
-          70: "#ebf791",
-          80: "#f1fab5",
-          90: "#f8fcda",
-        },
-        gray: {
-          10: "#292c32",
-          20: "#393e45",
-          30: "#4a4f59",
-          40: "#5a616c",
-          50: "#6a7280",
-          60: "#7d8491",
-          70: "#9096a1",
-          80: "#a4a9b2",
-          90: "#b7bbc2",
-        },
-        dark:{
-          primary: "#1D3557",
-          secondary: "#457B9D",
-        },
-        light:{
-          primary: "#A8DADC",
-          secondary: "#F1FAEE",
-        },
-        logo:{
-          primary:"#00008e"
-        },
-        bsnavyblue: "#1D3557",
-        bslightgreen: "#A8DADC",
-        bslightblue: "#457B9D",
-        bsbase: "#F1FAEE",
-      },
-      borderRadius: {
-        "4xl": "32px",
-      },
-    },
-  },
-
-```
-
-The code above was created by adapting the code in [Responsive Landing Page](https://github.com/xdcode2/course-website) as shown below:
-
-Reference Code:
-```
-/** @type {import('tailwindcss').Config} */
-export default {
-    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-    theme: {
-        screens: {
-            sm: "640px",
-            md: "768px",
-            lg: "992px",
-            xl: "1200px",
-        },
-        container: {
-            center: true,
-            padding: "1rem",
-        },
-        fontFamily: {
-            lato: ["Lato", "sans-serif"],
-        },
-        extend: {
-            fontSize: {
-                h1: [
-                    "clamp(2.25rem, 4vw, 3.375rem)",
-                    {
-                        lineHeight: "normal",
-                        fontWeight: "700",
-                    },
-                ],
-                h2: [
-                    "clamp(2rem, 4vw, 2.75rem)",
-                    {
-                        lineHeight: "normal",
-                        fontWeight: "700",
-                    },
-                ],
-                h3: [
-                    "clamp(1.75rem, 4vw, 2.25rem)",
-                    {
-                        lineHeight: "normal",
-                        fontWeight: "700",
-                    },
-                ],
-            },
-            colors: {
-                primary: {
-                    10: "#535c11",
-                    20: "#75811f",
-                    30: "#98a72c",
-                    40: "#bacc3a",
-                    50: "#ddf247",
-                    60: "#e4f56c",
-                    70: "#ebf791",
-                    80: "#f1fab5",
-                    90: "#f8fcda",
-                },
-                gray: {
-                    10: "#292c32",
-                    20: "#393e45",
-                    30: "#4a4f59",
-                    40: "#5a616c",
-                    50: "#6a7280",
-                    60: "#7d8491",
-                    70: "#9096a1",
-                    80: "#a4a9b2",
-                    90: "#b7bbc2",
-                },
-            },
-            borderRadius: {
-                "4xl": "32px",
-            },
-        },
-    },
-    plugins: [],
 };
+
+export default withNavbar(Questions);
 ```
 
-<!---How---> 
-- The code  in [Responsive Landing Page](https://github.com/xdcode2/course-website)  was implemented for tailwind.config.js styles.
-<!---Why--->  
-- [Responsive Landing Page](https://github.com/xdcode2/course-website)'s Code was used because it is open source and its styles are good reference point for our website style.
-<!---How--->  
-- [Responsive Landing Page](https://github.com/xdcode2/course-website)'s Code was modified by integrating it with our other color schemes and requirements.
+--- 
 
-### frontend/src/shared/assets
-- All the image assets in this folder are referenced from multiple sources which are as below:
-- [Enjoy the versatility of vector graphics](https://www.freepik.com/vectors)
-- [Responsive Landing Page](https://github.com/xdcode2/course-website)
-- [A World of Free Vector Art at Your Fingertips!](https://www.freevector.com/)
+## W3C Compliant
+BidSphere is W3C compliant and support cross browser rendering.
 
+---
 
-### The following 4 CSS validation errors have been detected by [w3](https://jigsaw.w3.org/), but these can be ignored as these classes are from tailwind css which has been imported and used as a css utility framework.
-```
-.shadow-none	Invalid RGB function
-.focus\:shadow-none:focus	Invalid RGB function
-.active\:shadow-none:active	Invalid RGB function
-.disabled\:shadow-none:disabled	Invalid RGB function
-```
+## Code Quality
+All files are checked and developed using AirBnB code guide style, enforced by eslint.
+
+---
+
+## Acknowledgments
+
+- Special thanks to all contributors who have helped to build BidSphere.
+- Icons and visuals are credited to [FontAwesome](https://fontawesome.com/), [Ant Design Icons](https://ant.design/components/icon/), and other libraries used in the project.
+
+---
+
+## Project Status
+
+BidSphere is actively being developed and maintained. We aim to add more features and improve user experience continuously.
+
