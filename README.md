@@ -11,8 +11,14 @@ Bidsphere aims to simplify the tender bidding process, offering a comprehensive 
 ## Live Deployment
 BidSphere is deployed and accessible at the following URL:
 
-Live Application: https://bidsphere-frontend.vercel.app
-(backend): https://bidsphere-backend.vercel.app
+- Live Application: https://bidsphere-frontend.vercel.app
+- (backend): https://bidsphere-backend.vercel.app
+
+---
+
+## Repo:
+- Github: https://github.com/KaziNizamul/BidSphere
+- GitLab: https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/tree/main/Assignments/Assignment3
 
 ---
 
