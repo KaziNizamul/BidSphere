@@ -22,6 +22,12 @@ BidSphere is deployed and accessible at the following URL:
 
 ---
 
+## Demo Link:
+
+https://github.com/user-attachments/assets/dbe051e8-b4b9-4c07-9724-a338aab7dee2
+
+---
+
 **Assignment 3 link :** https://git.cs.dal.ca/nkazi/csci_5709_b00961418/-/tree/main/Assignments/Assignment3
 
 ---
