@@ -1,8 +1,5 @@
 # BidSphere
 
-<p align="center">
-    <img src="https://deploy-badge.vercel.app/vercel/bidsphere-frontend" alt="Vercel Deploy"></img>
-</p>
 
 Bidsphere aims to simplify the tender bidding process, offering a comprehensive platform for both issuers and bidders. It provides a transparent, efficient, and user-friendly environment where issuers can create and manage tenders, while bidders can easily place and manage their bids.
 
@@ -11,8 +8,8 @@ Bidsphere aims to simplify the tender bidding process, offering a comprehensive 
 ## Live Deployment
 BidSphere is deployed and accessible at the following URL:
 
-- Live Application: https://bidsphere-frontend.vercel.app
-- (backend): https://bidsphere-backend.vercel.app
+- Live Application: https://bidsphere.netlify.app
+- (backend): https://bidsphere-node.onrender.com
 
 ---
 
